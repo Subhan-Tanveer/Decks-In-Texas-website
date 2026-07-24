@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { prefersReducedMotion } from '../lib/motion';
 
@@ -24,6 +24,22 @@ export default function usePageTransition(location) {
   const markRef = useRef(null);
   const busy = useRef(false);
   const queued = useRef(null);
+
+  // GSAP must be the ONLY thing that ever sets xPercent/opacity on these
+  // elements — including the very first, resting position. A CSS class doing
+  // `transform: translateX(-100%)` as the "default" looked reasonable, but
+  // GSAP's xPercent reads the element's CURRENT computed transform as its
+  // baseline and adds the new offset on top of it; if that baseline already
+  // holds -100% from a stylesheet rule, `.set({xPercent:-100})` compounds it
+  // to -200%, and every later tween in the sequence inherits that same
+  // one-step offset (confirmed via progress-scrubbing: the panel never
+  // visually reached 0%, and the final "exit" step landed at 0% instead of
+  // 100%). useLayoutEffect runs before paint, so there's no flash of an
+  // unset (fully covering) curtain on first load.
+  useLayoutEffect(() => {
+    if (panelRef.current) gsap.set(panelRef.current, { xPercent: -100 });
+    if (markRef.current) gsap.set(markRef.current, { opacity: 0, scale: 0.92 });
+  }, []);
 
   useEffect(() => {
     if (location.pathname === displayLocation.pathname) return;
@@ -68,19 +84,15 @@ export default function usePageTransition(location) {
       .to(panel, { xPercent: 100, duration: EXIT, ease: 'power3.inOut' }, '-=0.05');
   }
 
-  // Default position/opacity live in static CSS classes (never rewritten by React
-  // on re-render), NOT inline style props — GSAP is the sole runtime owner of
-  // these elements' transform/opacity. Mixing React-driven inline styles with
-  // GSAP tweens on the same property silently desyncs GSAP's internal transform
-  // cache and can leave a timeline's later steps stuck (bit us once already,
-  // in Preloader.jsx — same class of bug, don't repeat it here).
+  // No CSS classes for position/opacity here — see the useLayoutEffect above
+  // for why GSAP must own these from the very first paint.
   const curtain = (
     <div
       ref={panelRef}
-      className="pointer-events-none fixed inset-0 z-[250] flex -translate-x-full items-center justify-center bg-ink"
+      className="pointer-events-none fixed inset-0 z-[250] flex items-center justify-center bg-ink"
       aria-hidden
     >
-      <div ref={markRef} className="flex items-center gap-3.5 opacity-0">
+      <div ref={markRef} className="flex items-center gap-3.5">
         <span className="grid h-14 w-14 place-items-center rounded-xl bg-ember text-ink">
           <span className="font-display text-2xl font-semibold leading-none">D</span>
         </span>

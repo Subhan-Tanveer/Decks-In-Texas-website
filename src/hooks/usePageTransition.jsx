@@ -92,13 +92,8 @@ export default function usePageTransition(location) {
       className="pointer-events-none fixed inset-0 z-[250] flex items-center justify-center bg-ink"
       aria-hidden
     >
-      <div ref={markRef} className="flex items-center gap-3.5">
-        <span className="grid h-14 w-14 place-items-center rounded-xl bg-ember text-ink">
-          <span className="font-display text-2xl font-semibold leading-none">D</span>
-        </span>
-        <span className="font-display text-3xl font-semibold tracking-tight text-bone">
-          Decks<span className="text-ember">In</span>Texas
-        </span>
+      <div ref={markRef} className="flex items-center">
+        <img src="/logo.png" alt="Decks In Texas" className="h-24 w-auto sm:h-28" />
       </div>
     </div>
   );

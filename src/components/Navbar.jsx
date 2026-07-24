@@ -57,13 +57,12 @@ export default function Navbar() {
         }`}
       >
         <nav className="container-px flex h-[74px] items-center justify-between gap-4">
-          <Link to="/" aria-label="Decks In Texas home" className="group flex shrink-0 items-center gap-2.5" data-cursor>
-            <span className="grid h-9 w-9 place-items-center rounded-lg bg-ember text-ink transition-transform duration-500 group-hover:rotate-[-8deg]">
-              <span className="font-display text-lg font-semibold leading-none">D</span>
-            </span>
-            <span className="font-display text-lg font-semibold leading-tight tracking-tight text-bone">
-              Decks<span className="text-ember">In</span>Texas
-            </span>
+          <Link to="/" aria-label="Decks In Texas home" className="group flex shrink-0 items-center" data-cursor>
+            <img
+              src="/logo.png"
+              alt="Decks In Texas"
+              className="h-14 w-auto transition-transform duration-500 group-hover:-rotate-3 sm:h-16"
+            />
           </Link>
 
           <div className="hidden items-center gap-7 lg:flex">

@@ -23,9 +23,8 @@ export default function Footer() {
 
       <div className="container-px relative mt-16 grid gap-12 border-t border-bone/10 pt-14 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
         <div>
-          <Link to="/" className="flex items-center gap-2.5">
-            <span className="grid h-10 w-10 place-items-center rounded-lg bg-ember font-display text-lg font-semibold text-ink">D</span>
-            <span className="font-display text-xl font-semibold text-bone">Decks<span className="text-ember">In</span>Texas</span>
+          <Link to="/" className="flex items-center">
+            <img src="/logo.png" alt="Decks In Texas" className="h-16 w-auto" />
           </Link>
           <p className="mt-4 max-w-xs text-sm leading-relaxed">
             Veteran-owned custom deck, porch, railing &amp; fence builder proudly serving the Greater Austin metro.

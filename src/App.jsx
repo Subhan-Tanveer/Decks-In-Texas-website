@@ -7,6 +7,7 @@ import ScrollProgress from './components/ScrollProgress';
 import Cursor from './components/Cursor';
 import Preloader from './components/Preloader';
 import useSmoothScroll from './hooks/useSmoothScroll';
+import usePageTransition from './hooks/usePageTransition';
 import { initAnalytics, trackPageView } from './lib/analytics';
 
 import Home from './pages/Home';
@@ -33,7 +34,8 @@ function NotFound() {
 
 export default function App() {
   const location = useLocation();
-  useSmoothScroll();
+  const [displayLocation, curtain] = usePageTransition(location);
+  useSmoothScroll(displayLocation.pathname);
 
   useEffect(() => {
     initAnalytics();
@@ -45,12 +47,13 @@ export default function App() {
 
   return (
     <>
+      {curtain}
       <Preloader />
       <Cursor />
       <ScrollProgress />
       <Navbar />
       <main>
-        <Routes location={location}>
+        <Routes location={displayLocation}>
           <Route path="/" element={<Home />} />
           <Route path="/decks-and-porches" element={<DecksAndPorches />} />
           <Route path="/railings" element={<Railings />} />

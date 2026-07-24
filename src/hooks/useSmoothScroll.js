@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import Lenis from 'lenis';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useLocation } from 'react-router-dom';
 import { prefersReducedMotion } from '../lib/motion';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -20,9 +19,13 @@ export function getLenis() {
   return lenisSingleton;
 }
 
-export default function useSmoothScroll() {
-  const location = useLocation();
-
+/**
+ * `pathname` should be the path of whatever is ACTUALLY rendered right now
+ * (e.g. a page-transition curtain's lagged "display" location), not the raw
+ * router location — otherwise the scroll-to-top fires the instant a link is
+ * clicked, before any cover animation has hidden the still-visible old page.
+ */
+export default function useSmoothScroll(pathname) {
   useEffect(() => {
     // Flag lets CSS hide [data-reveal] elements only when JS + motion are live.
     document.documentElement.classList.add('js-ready');
@@ -71,5 +74,5 @@ export default function useSmoothScroll() {
     }
     const t = setTimeout(() => ScrollTrigger.refresh(), 200);
     return () => clearTimeout(t);
-  }, [location.pathname]);
+  }, [pathname]);
 }

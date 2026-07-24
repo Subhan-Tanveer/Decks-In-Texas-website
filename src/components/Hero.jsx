@@ -43,7 +43,7 @@ export default function Hero() {
   );
 
   return (
-    <section ref={root} className="relative flex min-h-[100svh] items-center overflow-hidden">
+    <section ref={root} className="relative isolate flex min-h-[100svh] items-center overflow-hidden">
       <div data-h-video className="absolute inset-0 -z-10">
         <VideoBackground video={MEDIA.heroVideo} poster={MEDIA.heroImage} overlay="default" />
       </div>

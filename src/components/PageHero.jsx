@@ -28,7 +28,7 @@ export default function PageHero({ eyebrow, title, intro, crumb, video, poster, 
   }, { scope: root });
 
   return (
-    <section ref={root} className="relative flex min-h-[62vh] items-end overflow-hidden pb-14 pt-32 sm:min-h-[68vh] sm:pb-20">
+    <section ref={root} className="relative isolate flex min-h-[62vh] items-end overflow-hidden pb-14 pt-32 sm:min-h-[68vh] sm:pb-20">
       <div data-ph-video className="absolute inset-0 -z-10">
         <VideoBackground video={video} poster={poster} overlay="center" />
       </div>

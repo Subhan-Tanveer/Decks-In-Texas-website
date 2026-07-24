@@ -49,7 +49,7 @@ export default function Hero() {
       </div>
       <div className="ember-glow pointer-events-none absolute -left-40 top-1/3 h-[40rem] w-[40rem] -z-10" aria-hidden />
 
-      <div data-h-content className="container-px w-full pt-24">
+      <div data-h-content className="container-px w-full pt-32">
         <div className="max-w-4xl">
           <span data-h-eyebrow className="eyebrow">Veteran-Owned · Austin, Texas</span>
 

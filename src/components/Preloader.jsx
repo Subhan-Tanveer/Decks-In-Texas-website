@@ -59,7 +59,7 @@ export default function Preloader({ onDone }) {
   return (
     <div ref={root} className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-ink">
       <div data-pl-mark className="flex flex-col items-center text-center">
-        <img src="/logo.png" alt="Decks In Texas" className="h-28 w-auto sm:h-32" />
+        <img src="/logo.png" alt="Decks In Texas" className="h-36 w-auto sm:h-44" />
         <div className="mt-3 text-[11px] font-semibold uppercase tracking-widest2 text-ash">
           Built to last · Built with honor
         </div>

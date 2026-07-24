@@ -93,7 +93,7 @@ export default function usePageTransition(location) {
       aria-hidden
     >
       <div ref={markRef} className="flex items-center">
-        <img src="/logo.png" alt="Decks In Texas" className="h-24 w-auto sm:h-28" />
+        <img src="/logo.png" alt="Decks In Texas" className="h-32 w-auto sm:h-40" />
       </div>
     </div>
   );

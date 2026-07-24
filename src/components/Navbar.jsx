@@ -56,12 +56,12 @@ export default function Navbar() {
           solid ? 'border-b border-bone/10 bg-ink/85 backdrop-blur-xl' : 'bg-transparent'
         }`}
       >
-        <nav className="container-px flex h-[74px] items-center justify-between gap-4">
+        <nav className="container-px flex h-[112px] items-center justify-between gap-4">
           <Link to="/" aria-label="Decks In Texas home" className="group flex shrink-0 items-center" data-cursor>
             <img
               src="/logo.png"
               alt="Decks In Texas"
-              className="h-14 w-auto transition-transform duration-500 group-hover:-rotate-3 sm:h-16"
+              className="h-20 w-auto transition-transform duration-500 group-hover:-rotate-3 sm:h-24"
             />
           </Link>
 

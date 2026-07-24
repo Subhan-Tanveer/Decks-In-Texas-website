@@ -25,7 +25,7 @@ export default function About() {
         title="A builder you can take at their word."
         emberWords={['word.']}
         video={VIDEOS.workshop}
-        poster={MEDIA.ownerPortrait}
+        poster={MEDIA.aboutHeroImage}
         intro="We brought the discipline of military service into the trade — and it shows in every board we set."
       />
 

@@ -28,7 +28,7 @@ export default function Contact() {
         title="Let's talk about your project."
         emberWords={['project.']}
         video={VIDEOS.woodCraft}
-        poster={MEDIA.craftDetail}
+        poster={MEDIA.contactHeroImage}
         intro="Call, text, WhatsApp, or drop us a note — a real person on our crew will get back to you fast."
       />
 

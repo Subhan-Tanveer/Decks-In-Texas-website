@@ -12,28 +12,40 @@
 const img = (id, w = 1400, h) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&q=80&w=${w}${h ? `&h=${h}` : ''}`;
 
-// Hotlinkable HD stock clips (Pexels CDN). Swap for the client's own footage by
-// dropping an .mp4 in /public/media/ and pointing the value at '/media/clip.mp4'.
-const vid = (slug) => `https://videos.pexels.com/video-files/${slug}.mp4`;
+// Client's own footage, generated from the prompts in IMAGE_AND_VIDEO_PROMPTS.md
+// and dropped in /public/media/. Each clip has a matching starter-image poster
+// (same file name pattern) so the hero never flashes between poster → video.
+const clip = (n) => `/media/clip-${n}.mp4`;
+const still = (n) => `/media/portfolio${n}.jpg`;
 
 export const VIDEOS = {
-  deckDusk: vid('9222928/9222928-hd_1920_1080_30fps'),
-  deckWide: vid('8533934/8533934-hd_1920_1080_30fps'),
-  deckDetail: vid('8775770/8775770-hd_1920_1080_25fps'),
-  woodCraft: vid('3147261/3147261-hd_1920_1080_30fps'),
-  woodCraft2: vid('3147262/3147262-hd_1920_1080_30fps'),
-  workshop: vid('4480585/4480585-hd_1920_1080_30fps'),
-  workshop2: vid('4480589/4480589-hd_1920_1080_30fps'),
-  hands: vid('5972115/5972115-hd_1920_1080_25fps'),
-  hands2: vid('5972110/5972110-hd_1920_1080_25fps'),
-  sawdust: vid('4957773/4957773-hd_1920_1080_25fps'),
+  deckDusk: clip(1), // Home hero
+  deckWide: clip(2), // Decks & Porches hero
+  deckDetail: clip(3), // Railings hero
+  fenceGolden: clip(4), // Fences hero
+  backyardBlue: clip(5), // Portfolio hero
+  workshop: clip(6), // About hero
+  sawdust: clip(7), // Get a Free Estimate hero
+  woodCraft: clip(8), // Contact hero
+  woodCraft2: clip(9), // Closing CTA band (every page)
 };
 
 export const MEDIA = {
-  // Hero — swap for a wide cinematic dusk shot of a finished deck.
-  heroImage: img('1574120583586-de8847ae992c', 2000, 1200),
+  // Hero — home page.
+  heroImage: still(1),
   heroVideo: VIDEOS.deckDusk,
 
+  // Dedicated poster stills, one per hero video (see VIDEOS above for the pairing).
+  decksHeroImage: still(2),
+  railingsHeroImage: still(3),
+  fencesHeroImage: still(4),
+  portfolioHeroImage: still(5),
+  aboutHeroImage: still(6),
+  quoteHeroImage: still(7),
+  contactHeroImage: still(8),
+  ctaImage: still(9),
+
+  // Supporting body photography (unrelated to the hero videos above).
   ownerPortrait: img('1608613304899-ea8098577e38', 900, 1100),
   craftDetail: img('1543764477-646365e11da3', 1100, 800),
 
@@ -43,10 +55,10 @@ export const MEDIA = {
   },
 
   services: {
-    decks: img('1613544723412-b331bda01e87', 1000, 750),
+    decks: still(2),
     porches: img('1760552268175-431696421106', 1000, 750),
-    railings: img('1548422405-adca597f4272', 1000, 750),
-    fences: img('1598947913539-84475228440d', 1000, 750),
+    railings: still(3),
+    fences: still(4),
   },
 };
 

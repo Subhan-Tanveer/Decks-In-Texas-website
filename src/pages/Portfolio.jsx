@@ -23,8 +23,8 @@ export default function Portfolio() {
         eyebrow="Our work"
         title="Built board by board across Central Texas."
         emberWords={['Central', 'Texas.']}
-        video={VIDEOS.deckWide}
-        poster={MEDIA.heroImage}
+        video={VIDEOS.backyardBlue}
+        poster={MEDIA.portfolioHeroImage}
         intro="Filter by project type and tap any photo for a closer look. Every project here was designed and built by our own crew."
       />
 

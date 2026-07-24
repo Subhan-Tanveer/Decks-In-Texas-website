@@ -10,7 +10,7 @@ import { Phone, ArrowRight } from './icons';
 export default function CTASection() {
   return (
     <section className="relative overflow-hidden py-28 sm:py-36">
-      <VideoBackground video={VIDEOS.woodCraft2} poster={MEDIA.craftDetail} overlay="heavy" />
+      <VideoBackground video={VIDEOS.woodCraft2} poster={MEDIA.ctaImage} overlay="heavy" />
       <div className="ember-glow pointer-events-none absolute inset-0" aria-hidden />
 
       <div className="container-px relative text-center">

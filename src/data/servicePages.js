@@ -106,7 +106,7 @@ export const SERVICE_PAGES = {
       eyebrow: 'Fences & Gates',
       title: 'Privacy, security & curb appeal, built to last.',
       emberWords: ['built', 'to', 'last.'],
-      video: VIDEOS.deckDusk,
+      video: VIDEOS.fenceGolden,
       poster: MEDIA.services.fences,
       intro:
         'Horizontal cedar, board-on-board, and modern slat fences and gates that stand up to Texas weather and finish off your outdoor space.',

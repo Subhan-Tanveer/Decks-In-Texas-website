@@ -32,7 +32,7 @@ export default function GetQuote() {
         title="Get your free estimate."
         emberWords={['free', 'estimate.']}
         video={VIDEOS.sawdust}
-        poster={MEDIA.craftDetail}
+        poster={MEDIA.quoteHeroImage}
         intro="Tell us about your project and JC will personally reach out within one business day to schedule your free on-site visit."
       />
 

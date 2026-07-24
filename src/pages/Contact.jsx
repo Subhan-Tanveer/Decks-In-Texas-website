@@ -1,6 +1,8 @@
 import PageHero from '../components/PageHero';
 import Section from '../components/Section';
+import SectionHeading from '../components/SectionHeading';
 import QuoteForm from '../components/QuoteForm';
+import MapEmbed from '../components/MapEmbed';
 import Reveal from '../components/Reveal';
 import { SITE, telHref, whatsappHref } from '../data/site';
 import { Phone, Whatsapp, Mail, MapPin, Clock } from '../components/icons';
@@ -79,6 +81,17 @@ export default function Contact() {
             <QuoteForm />
           </Reveal>
         </div>
+      </Section>
+
+      <Section tone="coal">
+        <SectionHeading
+          eyebrow="Find us"
+          title="Serving the Greater Austin metro."
+          emberWords={['Austin']}
+          intro={`Based in ${SITE.city}. Give us a call if you're not sure whether your project is in range.`}
+          className="mb-10"
+        />
+        <MapEmbed />
       </Section>
     </>
   );
